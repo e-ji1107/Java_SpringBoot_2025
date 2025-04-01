@@ -1,2 +1,110 @@
 # Java_SpringBoot_2025
 Java 개발자 과정 SpringBoot
+
+## 1일차
+
+### 웹 개요
+- 구성 3단계
+    - 브라우저(클라이언트/프론트앤드) : 사용자의 **요청**, 결과를 돌려받는 파트트
+    - 서버(벡앤드) : 사용자의 요청을 받아 DB에서 데이터를 가져와 처리하고, 사용자에게 **응답**하는 파트
+    - 데이터베이스 : 가장 중요한 데이터가 저장되어 있는 파트
+
+- 웹 개념
+    - Request(요청)에 대한 Response(응답답)
+
+### SpringBoot 개요
+- Java : 컴퓨팅 세상 모든곳에서 사용될 수 있는 언어가 되고자 개발됨
+- 웹개발
+    1. CGI(Common GataWay Interface) : HTTP 프로토콜에서 정적인 데이터만 전달할 수 있는 웹기술
+    2. Servlet : CGI를 개선한 Java 웹기술. 동적으로 개발할 수 있음
+        - HTML코드를 전부 JAVA에서 작성성
+    3. EJB(Enterprise Java Bean) : 서블릿으로 대형 프로젝트를 개발할 수 있는 Java 웹기술
+        - 복잡잡
+    4. JSP(Java Server Page) : 웹페이지 코드(HTML)에 자바소스를 포함하여 개발할 수 잇는 JAVA 웹기술
+        - 확장자 .jsp / 스파게티 코트
+    5. Spring : JAVA 웹개발 전성기
+        - 설정이 복잡
+    6. Spring Boot : Spring의 단점을 최소화. 설정을 간결과
+
+- sSpring Boot
+    - Spring의 기술을 그대로 사용(마이그레이션이 간단)
+    - JAVA 기술을 사용하면 ERD나 DB설계를 하지 않고도 손쉽게 DB를 생성, DB 연동도 쉬움
+    - Tomcat Webserver가 내장(설치 필요없음)
+    - 서포터하는 기능 다수 존재(개발을 쉽게 도와줌)
+    -  테스트용 JUnit, Log432 모두 포함(설치 필요없음)
+    - 프론트엔드를 다야하게 지원, JSP,**Thymeleaf**, Mustache 등
+
+- MVC
+    <img src="image/img01.png" width="700">
+
+### Spring Boot 개발환경 설정
+- 필요요소
+    - Java, 개발툴, 데이터베이스
+
+- Java
+    - Java Runtime과 JDK(Java Developer Kit) 존재
+        - Oracle 외에도 OpenJdk가 산재
+        - https://adoptium.net/
+        - https://www.azul.com/downloads/?package=jdk#zulu
+        - https://jdk.java.net/
+    - Java 17버전 이상 설치
+    - https://www.oracle.com/kr/java/technologies/downloads/
+    - jdk-17.0.13_windows-x64_bin.msi 다운로드
+
+    - 시스템 정보(sysdm.cpl) 고급>환경변수 PATH 설정
+        - 새로 만들기
+            - JAVA_HOME : 본인 경로 입력
+        - path에 %JAVA_HOME%\bin 추가, 맨 위로
+    - powershell
+        - java -version으로 확인
+
+- Visual Studio Code
+    - Java 검색
+        - Extension Pach for Java 설치.
+        - Debuhher for Java 등 총 7가지 확장 설치
+
+### Java 기본 실행
+- VS Code에서 명령팔레트 실행(Ctrl + Shift + p)
+    1. Java create Java Project > maven
+    2. no Archtype
+    3. Group ID 입력(com.example > 원하는 이름)
+    4. Artifact ID 입력(demo > 변경가능)
+    5. 저장위치 결정
+
+### Spring Boot 설정
+- Visual Studio Code 확장 설치
+    - Spring 검색
+        - Spring Boot Extension Pack 설치 -> 모두 설치됨(추가 3개)
+    - Gradle(빌트툴) 검색
+        - Gradle for Java 설치
+
+### Spring Boot 기본 실행(Java)프로젝트
+- VS Code에서 명령 팔레트 실행
+    - Spring Initializr : Create a Maven Project
+    - Specify Spring Boot version : 3.3.10 선택
+    - Specify project langauge : Java
+    - Input Group Id: 본인 아이디 입력 / com.yej
+    - Specify packaging type: Jar
+    - Specify Java version : 17
+
+
+
+
+
+
+
+
+
+
+
+
+## 2일차
+## 3일차
+## 4일차
+## 5일차
+
+
+
+
+
+## 6일차
