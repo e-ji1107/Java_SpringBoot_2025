@@ -26,7 +26,7 @@ Java 개발자 과정 SpringBoot
         - 설정이 복잡
     6. Spring Boot : Spring의 단점을 최소화. 설정을 간결과
 
-- sSpring Boot
+- Spring Boot
     - Spring의 기술을 그대로 사용(마이그레이션이 간단)
     - JAVA 기술을 사용하면 ERD나 DB설계를 하지 않고도 손쉽게 DB를 생성, DB 연동도 쉬움
     - Tomcat Webserver가 내장(설치 필요없음)
