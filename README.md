@@ -10,7 +10,7 @@ Java 개발자 과정 SpringBoot
     - 데이터베이스 : 가장 중요한 데이터가 저장되어 있는 파트
 
 - 웹 개념
-    - Request(요청)에 대한 Response(응답답)
+    - 사용자 Request(요청)에 대한 Response(응답답)
 
 ### SpringBoot 개요
 - Java : 컴퓨팅 세상 모든곳에서 사용될 수 있는 언어가 되고자 개발됨
@@ -84,8 +84,19 @@ Java 개발자 과정 SpringBoot
     - Specify Spring Boot version : 3.3.10 선택
     - Specify project langauge : Java
     - Input Group Id: 본인 아이디 입력 / com.yej
-    - Specify packaging type: Jar
+    - Input Artifact Id: spring01
+    - Specify packaging type: Jar(Java archive, 압축파일)
     - Specify Java version : 17
+    - Choose dependencies: Selected 0 dependcies
+    - 저장위치 선택
+    - **새 창 열기** - Spring Boot 프로젝트가 루트폴더가 된 개발 환경
+
+- 실행방법
+    - 코드 작성
+    - Spring Boot Dashboard > Apps > 앱 실행
+
+- 기초 문법
+    - [JAVA기초문법](./JAVA_BASIC.md)
 
 
 
