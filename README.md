@@ -32,7 +32,9 @@ Java 개발자 과정 SpringBoot
     - Tomcat Webserver가 내장(설치 필요없음)
     - 서포터하는 기능 다수 존재(개발을 쉽게 도와줌)
     -  테스트용 JUnit, Log432 모두 포함(설치 필요없음)
-    - 프론트엔드를 다야하게 지원, JSP,**Thymeleaf**, Mustache 등
+    - 프론트엔드를 다양하게 지원, JSP,**Thymeleaf**, Mustache 등
+    - React, View, js 등의 자바스크립트 프론트엔드와 연계해서 풀스택 개발 가능
+    - MVC(Model View Controller)로 영역을 분리. 각 부분별로 따로 개발발
 
 - MVC
     <img src="image/img01.png" width="700">
@@ -97,21 +99,20 @@ Java 개발자 과정 SpringBoot
 
 - 기초 문법
     - [JAVA기초문법](./JAVA_BASIC.md)
-
-
-
-
-
-
-
-
-
-
-
-
+    - 기본, 변수, 자료형, 연산자, 흐름제어
 ## 2일차
+- 기초문법 계속
+    - [JAVA기초문법](./JAVA_BASIC.md)
+    - 흐름제어(반복문), 배열, 메서드, 객체/클래스, 상속
+
 ## 3일차
+- 기초문법 계속
+    - [JAVA기초문법](./JAVA_BASIC.md)
+    - 상속, 인터페이스, 예외처리, 제네릭, 컬렉션 프레임워크, 입출력
 ## 4일차
+- 기초문법 마무리
+- Spring Boot 시작
+
 ## 5일차
 
 
