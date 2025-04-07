@@ -153,10 +153,166 @@ Java 개발자 과정 SpringBoot
 
 - Spring Boot 시작
 - Gradle 오류 해결법
+    - [gradle](https://gradle.org/install/)
+    - C:\Gradle 위치에 압축 해제
+    - sysdm.cpl 환경변수 GRADLE_HOME 경로 입력, 확인(JAVA_HOME 동일)
+    - VS Code 설정
+
+    <img src="./image/img03.png " width="700">
+    - Gradle Build Server : Enabled 기본 on -> off
+
+    <img src="./image/img04.png" width="700">
+    - Gradle Home -> 환경변수 입력한 GRADLE_HOME의 경로 입력
+    - GRADLE JAVA HOME -> 환경변수 JAVA_HOME의 경로 입력
+
+    - VS Code 재시작.
 
 ## 5일차
+- Spring Boot 웹실행
+    - Spring Initializr: Create a Gradel Project
+    - Specify Spring Boot version: 3.4.4
+    - Specify project language: Java
+    - Input Group Id: 본인 아이디 입력/com.jsz
+    - Input Artifact Id: Spring01
+    - Specify packaging type: Jar(Java archive, 압축파일)
+    - Specify Java version: 17
+    - Choose dependencies: Selected 1 dependencies 
+        - Spring Web
+    - 저장 위치 선택
+    - 새 창 열기 - Spring Boot 프로젝트가 루트 폴더가 된 개발 환경
+
+- 기본 성정
+    - application.properties에 `spring.output.ansi.enabled=always` 추가
+
+- 포트 번호
+    |프로토콜|포트번호|비고|
+    |:---|---:|:---|
+    |HTTP|80|웹 서비스 포트(보안 취약)|
+    |HTTPS|443|SSL을 적용한 웹 서비스(보안 강화)|
+    |FTP|21|웹을 통한 파일전송|
+    |TELNET|23|원격서버접속 서비스|
+    |SSH|22|보안 강화된 텔넷|
+    |SMTP|25|메일 전송 서비스|
+
+- 개발용 포트
+    - 포트는 중복 안 됨
+    - 8080 포트를 사용하고 있으면 다른 포트로 변경해야 함
+    - 포트 변경시 application.properties에 `server.port=8090` 추가
+
+- 웹 브라우저 열기
+    - http://localhost:8090/ 오픈
+
+    <img src="./image/sb003.png" width="700">
+
+- 접속 위치 요청 처리
+    - 컨트롤러 생성
+        - HelloController 클래스 생성
+        - http://localhost:8090/hello
+
+    - 각 기능별로 패키지를 구분
+        - controller, model 등...
+
+- Log-back
+    - 스프링부트에 내장된 로그 모듈
+    - application.properties 내 로그 설정
+
+    ```groovy
+    logging.level.root = info
+    logging.file.name = /logtest.log
+    ```
+
+    - 사용 시
+    ```java
+    // 클래스 내 작성
+     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    // 메서드 내 사용
+    logger.info("hello URL 오픈"); 
+    
+    // 문제 발생 시 로그
+    logger.debug("디버그 시 필요한 로그입니다.");
+    logger.trace("디버그 시 필요한 로그입니다.");
+
+    logger.warn("경고 표시시 나타내는 로그입니다.");
+    logger.error("오류 표시시 나타내는 로그입니다.");
+    ```
+
+- Log4J2 외부모듈 사용 권장.
+
+### 스프링부트 배너(중요도 없음)
+- resources 폴더에 banner.txt를 생성
+- 내용 추가
+- [Spring Boot Banner Generator](https://devops.datenkollektiv.de/banner.txt/index.html)
+- 배너제너레이터로 생성한 글자 복사 banner.txt 붙여넣기
+- 서버 재시작
+
+<img src="./image/img09.png" width="700">
+
+### 메인페이지 추가
+- resources/static/index.html 부터 시작
+
+### 스프링부트 프로젝트 구조
+<img src="./image/png10.png" width="300">
+
+- 각 폴더 구조
+- .gradle ~ gredle : 그레이들, VSCode, 빌드 등에 필요한 폴더(설명필요x)
+- `src/main/java` : 패키지와 자바 소스가 저장되는 위치
+- com.yej.spring03 : 패키지. 폴더로 구성
+    - HelloController 클래스에 접근하려면
+    - com.yej.spring03/controller.HelloController 에 접근해야함
+- Spring03Application.java : 시작프로그램
+- src/main/resources : 자바파일 외에 HTML, CSS, JS, 환경파일 등 리소스 파일 저장되는 위치
+    - `static` : CSS, JS, 이미지 파일 저장되는 곳
+    - `templates` : 스프링부트와 연계되는 HTML 파일 저장되는 곳
+    - `application.properties` : 프로젝트 환경설정 파일. 환경변수, DB 설정
+- src/test/java : JUnit 스프링부트 테스트도구 자바파일 저장되는 위치
+- `build.gradle` : 그레이들 환경 파일. Groovy 기반으로 한 빌드 도구. dependencies 만 잘 구성하면 됨
+- gradlew.bat : 중간에 직접 그레이들 빌드를 할 때 사용하는 배치파일
+- settings.gradle : 고급 그레이들 설정. 손댈일 없음
+
+### 스프링부트 어노테이션
+
+#### @SpringBootApplication
+- 스프링부트 자동구성 매커니즘 활성화
+- 어플리케이션 내 패키지에서 컴포넌트들 스캐닝
+- 설정 클래스 임포트해서 활성화, 스프링부트 실행
+
+#### @Controller
+- 컴포넌트 구체화해서 해당클래스 IoC컨테이너 Bean으로 등록
+
+#### @GetMapping
+- Get, Post 중 Get(URL)으로 들어오는 주소를 매핑. 처리해주는 역할
+- @PostMapping, @RequestMapping 등 파악
+
+#### @ResponseBody
+- HTTP 요청의 자바객체가 처리한 body내용을 매핑하는 역할
+- 자바의 String 문자열을 웹페이지에 렌더링.
 
 
+
+#### 어노테이션
+- 한글로 주석이지만, #, //, /**/ 소스에 아무런 영향을 미치지 않는 주석과 다름
+- 자바 소스에 추가해서 여러가지 기능을 수행하는 메타데이터 일종
+- @로 시작, JDK 1.5 이상부터 사용가능
+- 클래스 파일에 같이 포함되어서 JVM 작동시 처리 실행됨
+- 클래스, 메서드 바로 위에 작성. 코드와 설정을 관리할 수 있게 도와주는 역할
+
+##### 1. @Override
+- 오버라이드를 올바르게 했는지 컴파일러 체크
+- 상속, 인터페이스 구현시 사용
+
+##### 2. @Deprecated
+- 앞으로 다음 버전에서 삭제될 수 있음. 사용하지 말것을 권유하는 체크
+<img src="./image/img11.png" width="700">
+
+- 되도록이면 이 함수는 사용하지 말것
+
+##### 3. @FunctionalInterface
+- 함수형 인터페이스에 붙여서, 컴파일러가 올바르게 작성되었는지 체크
+
+
+
+## 6일차(06-26)
 
 
 
